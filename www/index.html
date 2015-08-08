@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pinglio</title>
+
+    <link rel="stylesheet" href="libs/angular-material/angular-material.css">
+    <link rel="stylesheet" href="styles/app.css">
+
+    <script src="libs/angular/angular.js"></script>
+    <script src="libs/angular-animate/angular-animate.js"></script>
+    <script src="libs/angular-aria/angular-aria.js"></script>
+    <script src="libs/angular-material/angular-material.js"></script>
+
+    <script src="libs/socket.io-client/socket.io.js"></script>
+
+    <script src="js/app.js"></script>
+</head>
+<body ng-app="pinglio" ng-controller="AppCtrl as app">
+    <md-toolbar md-scroll-shrink>
+        <div class="md-toolbar-tools">
+            <h3>Pinglio</h3>
+        </div>
+    </md-toolbar>
+    <md-content>
+        <md-list>
+            <md-subheader>
+                Website Status
+            </md-subheader>
+            <md-list-item class="md-2-line" ng-repeat="website in app.websites">
+                <div class="md-list-item-text">
+                    <h3>
+                        <a ng-href="{{website.address}}">{{website.name}}</a>
+                    </h3>
+                    <p>
+                        <span ng-if="website.isAlive">is alive</span>
+                        <span ng-if="!website.isAlive">
+                            is dead since {{website.deadSince | date: 'medium'}}
+                        </span>
+                    </p>
+                </div>
+                <div class="md-secondary">
+                    <md-icon md-svg-src="icons/close.svg" class="dead"
+                            ng-if="!website.isAlive"></md-icon>
+                    <md-icon md-svg-src="icons/check.svg" class="alive"
+                        ng-if="website.isAlive">
+                    </md-icon>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</body>
+</html>

@@ -1,0 +1,13 @@
+.alive {
+    color: #009688;
+}
+
+.dead {
+    color: #F44336;
+}
+
+a {
+    text-decoration: none;
+    color: #3F51B5;
+    font-weight: 200;
+}
