@@ -4,7 +4,9 @@
   "description": "A simple monitoring service to Edlio",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm install && bower install",
+    "start": "node index"
   },
   "keywords": [
     "Edlio",

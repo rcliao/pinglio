@@ -48,3 +48,4 @@ hosts.forEach(function(host) {
 })
 
 server.listen(3000);
+console.log('Start server at lcoalhost:3000/');
