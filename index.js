@@ -35,7 +35,9 @@ hosts.forEach(function(host) {
         request(host.address, function(err, res, body) {
             if (err) {
                 host.isAlive = false;
-                host.deadSince = new Date();
+                if (!host.deadSince) {
+                    host.deadSince = new Date();
+                }
                 console.log('%s is dead', host.name);
             } else {
                 host.isAlive = true;
