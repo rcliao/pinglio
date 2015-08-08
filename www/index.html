@@ -34,7 +34,9 @@
                         <a ng-href="{{website.address}}">{{website.name}}</a>
                     </h3>
                     <p>
-                        <span ng-if="website.isAlive">is alive</span>
+                        <span ng-if="website.isAlive">
+                            is alive. Response time: {{website.responseTime}} ms
+                        </span>
                         <span ng-if="!website.isAlive">
                             is dead since {{website.deadSince | date: 'medium'}}
                         </span>

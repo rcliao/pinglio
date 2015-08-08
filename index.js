@@ -31,6 +31,7 @@ var hosts = [
 
 hosts.forEach(function(host) {
     setInterval(function() {
+        var start = new Date();
         request(host.address, function(err, res, body) {
             if (err) {
                 host.isAlive = false;
@@ -39,6 +40,7 @@ hosts.forEach(function(host) {
             } else {
                 host.isAlive = true;
                 host.deadSince = null;
+                host.responseTime = new Date() - start;
                 console.log('%s is alive', host.name);
             }
 
